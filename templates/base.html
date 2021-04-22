@@ -1,0 +1,45 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}JPG to PDF{% endblock %}
+{% block navbar %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}"
+type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.png') }}"
+type="image/x-icon">
+{% endblock %}
+<div class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle"
+data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/">JPG to PDF Converter</a>
+    </div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li><a href="/">Home</a></li> <li><a href="/about">About</a></li>
+</ul>
+</div>
+</div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}
